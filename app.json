@@ -1,0 +1,12 @@
+{
+  "name": "watering-app",
+  "displayName": "watering-app",
+  "expo": {
+    "name": "watering-app",
+    "slug": "watering-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
