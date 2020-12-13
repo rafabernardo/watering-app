@@ -1,6 +1,10 @@
 import React from 'react';
-import { View } from 'react-native';
+import {Text, View } from 'react-native';
 
-export default function initialPage(){
-   
+export default function InitialPage(){
+   return (
+      <View>
+         <Text>Just a text</Text>
+      </View>
+   )
 }
