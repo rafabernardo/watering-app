@@ -32,12 +32,12 @@ export default StyleSheet.create({
    regItem: {
       padding: 12,
       borderRadius: 8,
-      backgroundColor: '#D3D3D3',
+      backgroundColor: '#CCCCCC',
       marginBottom: 16,
    },
    regTitle: {
-      fontSize: 18,
-      color: '#13131a',
+      fontSize: 20,
+      color: '#FF9933',
       fontWeight: 'bold',
    },
    regInput: {
@@ -45,5 +45,9 @@ export default StyleSheet.create({
       color: '#555555',
       fontWeight: 'bold',
    },
+   saveButton: {
+      borderRadius: 16,
+
+   }
 
 })

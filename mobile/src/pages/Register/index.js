@@ -18,7 +18,7 @@ export default function Register() {
                Cadastrar nova planta
             </Text>
             <TouchableOpacity onPress={navigateBack}>
-               <Feather name="arrow-left" size={28} color="blue" />
+               <Feather name="arrow-left" size={28} color="#FF9933" />
             </TouchableOpacity>
          </View>
          <View >
@@ -59,7 +59,7 @@ export default function Register() {
             <Button
                onPress={() => { }}
                title="Salvar"
-               color="blue"
+               color="#003399"
                accessibilityLabel="Learn more about this purple button"
             />
          </View>
