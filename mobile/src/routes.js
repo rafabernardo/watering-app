@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const AppStack = createStackNavigator();
 
-import InitialPage from './pages/InitialPage'
+import InitialPage from './pages;'
 
 export default function Routes() {
    return (
