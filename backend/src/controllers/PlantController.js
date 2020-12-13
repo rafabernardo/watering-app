@@ -3,6 +3,7 @@ const connection = require('../database/connection');
 module.exports = {
   async create(req, res) {
     const {
+      name,
       species,
       watering_date,
       humidity_level,
@@ -11,6 +12,7 @@ module.exports = {
     } = req.body;
 
     await connection('plant').insert({
+      name,
       species,
       locate,
       humidity_level,
