@@ -11,6 +11,10 @@ export default function Register() {
    function navigateBack() {
       navigation.goBack();
    }
+   function saveRegister() {
+      console.log("registro salvo com sucesso");
+   }
+
    return (
       <View style={styles.container}>
          <View style={styles.header}>
@@ -71,17 +75,20 @@ export default function Register() {
 
                />
             </View>
-            
+
 
          </View>
-         <View style={styles.saveButton}>
-               <Button
-                  onPress={() => { }}
-                  title="Salvar"
-                  color="#FF9933"
-                  accessibilityLabel="Learn more about this purple button"
-               />
-            </View>
+
+         <TouchableOpacity
+            style={styles.saveButton}
+            onPress={saveRegister}
+            color="#FF9933">
+            <Text style={styles.textSaveButton}
+            >
+               Salvar
+            </Text>
+         </TouchableOpacity>
+
       </View>
    )
 }
