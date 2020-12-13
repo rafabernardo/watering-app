@@ -23,16 +23,34 @@ module.exports = {
     return res.json({ species });
   },
 
-  async list(req, res) {
-    const { page = 1 } = req.query;
+  // async list(req, res) {
+  //   const { page = 1 } = req.query;
 
-    const [count] = await connection('plant').count();
-    const plants = await connection('plant')
-      .select('*')
+  //   const [count] = await connection('plant').count();
+
+  //   const plants = await connection('plant')
+  //     .select('*')
+  //     .limit(5)
+  //     .offset((page - 1) * 5);
+
+  //     res.header("X-Total-Count", count["count(*)"]);
+  //   return res.json(plants);
+  // },
+
+  async list(request, response) {
+    const { page = 1 } = request.query;
+  
+    const [count] = await connection("plant").count();
+  
+    const plants = await connection("plant")
       .limit(5)
-      .offset((page - 1) * 5);
-
-      res.header("X-Total-Count", count["count(*)"]);
-    return res.json(plants);
+      .offset((page - 1) * 5)
+      .select('*');
+  
+    response.header("X-Total-Count", count["count(*)"]);
+    return response.json(plants);
   },
+  
 };
+
+

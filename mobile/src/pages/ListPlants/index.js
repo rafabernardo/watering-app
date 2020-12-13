@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { Text, View, TouchableOpacity, FlatList } from 'react-native';
-import moment from 'moment';
 
 import api from '../../services/api';
 
@@ -18,6 +17,10 @@ export default function ListPlants() {
 
   function navigationToDetail(plant) {
     navigation.navigate('Details', { plant });
+  }
+
+  function navigateBack() {
+    navigation.goBack();
   }
 
   async function loadPlants() {
@@ -46,25 +49,32 @@ export default function ListPlants() {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigateBack()}
+      >
+        <Feather name='arrow-left' size={24} color='#72D5DF' />
+      </TouchableOpacity>
+      <Text style={styles.title}>Aqui estão as suas plantas</Text>
+
       <FlatList
+        style={styles.incidentList}
         data={plants}
         keyExtractor={(plant) => String(plant.id)}
+        // showsVerticalScrollIndicator={false}
         onEndReached={loadPlants}
         onEndReachedThreshold={0.2}
         renderItem={({ item: plant }) => (
-          <View>
-            <Text>{plant.name}</Text>
+          <View style={styles.card}>
+            <View>
+              <Text style={styles.incidentProperty}>{plant.name}</Text>
+              <Text style={styles.incidentValue}>{plant.species}</Text>
+            </View>
 
-            <Text>{plant.species}</Text>
-
-            {/* <Text>Localização:</Text>
-            <Text>{plant.locate}</Text> */}
-
-            {/* <Text>Última rega foi em {moment(plant.watering_date).format('DD-MMM-YYYY [às] hh:mm')}</Text>
-            <Text>Data da aquisição foi em {moment(plant.acquisition_date).format('DD-MMM-YYYY [às] hh:mm')}</Text> */}
-            <TouchableOpacity onPress={() => navigationToDetail(plant)}>
-              <Text style={styles.detailsButtonText}>Ver Mais Detalhes</Text>
-              <Feather name='arrow-right' size={16} color='#E02041' />
+            <TouchableOpacity
+              style={styles.detailsButton}
+              onPress={() => navigationToDetail(plant)}
+            >
+              <Feather name='arrow-right' size={16} color='#FFF' />
             </TouchableOpacity>
           </View>
         )}
