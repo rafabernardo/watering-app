@@ -3,11 +3,12 @@ const express = require('express');
 const routes = express.Router();
 
 
-routes.post('/users', (request, responsee) =>{
-    const body = request.body;
-    console.log(body);
+routes.post('/new_plant', (request, response) =>{
+    const data = request.body;
 
-    return responsee.json({teste: "testando"});
+    console.log(data);
+
+    return response.json();
 });
 
 module.exports = routes;
