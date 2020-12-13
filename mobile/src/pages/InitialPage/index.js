@@ -1,17 +1,20 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 
-import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-
 import backgroundImage from '../../assets/Frame.png';
+import styles from './styles';
 
 export default function InitialPage() {
   const navigation = useNavigation();
 
   function navigateToRegister() {
     navigation.navigate('Register');
+  }
+
+  function navigateToList() {
+    navigation.navigate('ListPlants');
   }
 
   return (
@@ -34,14 +37,12 @@ export default function InitialPage() {
       </ImageBackground>
       <View style={styles.container}>
         <Text style={styles.title}>Bem vindo!</Text>
-        
-        <TouchableOpacity
-          onPress={navigateToRegister}
-          style={styles.button}>
+
+        <TouchableOpacity onPress={navigateToRegister} style={styles.button}>
           <Text style={styles.buttonTxt}>Cadastrar Planta</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={navigateToList} style={styles.button}>
           <Text style={styles.buttonTxt}>Visualizar Plantas</Text>
         </TouchableOpacity>
       </View>
