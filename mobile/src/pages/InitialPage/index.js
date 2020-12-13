@@ -1,17 +1,38 @@
 import React from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
+
 import styles from './styles';
+
+import backgroundImage from '../../assets/Frame.png';
 
 export default function InitialPage() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Bem vindo!</Text>
-      <TouchableOpacity style={styles.button}>
-        <Text>Cadastrar Planta</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text>Visualizar Plantas</Text>
-      </TouchableOpacity>
+    <View>
+      <ImageBackground
+        source={backgroundImage}
+        style={{
+          width: '100%',
+          height: 500,
+          position: 'relative',
+          overflow: 'hidden',
+        }}
+        imageStyle={{
+          resizeMode: 'cover',
+          alignSelf: 'flex-start',
+          flex: 1,
+        }}
+      >
+        <Text style={styles.appName}>Watering App</Text>
+      </ImageBackground>
+      <View style={styles.container}>
+        <Text style={styles.title}>Bem vindo!</Text>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonTxt}>Cadastrar Planta</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonTxt}>Visualizar Plantas</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
