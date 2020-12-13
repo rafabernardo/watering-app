@@ -34,14 +34,15 @@ export default function InitialPage() {
       </ImageBackground>
       <View style={styles.container}>
         <Text style={styles.title}>Bem vindo!</Text>
-        
+
         <TouchableOpacity
+          activeOpacity={0.6}
           onPress={navigateToRegister}
           style={styles.button}>
           <Text style={styles.buttonTxt}>Cadastrar Planta</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity activeOpacity={0.6} style={styles.button}>
           <Text style={styles.buttonTxt}>Visualizar Plantas</Text>
         </TouchableOpacity>
       </View>

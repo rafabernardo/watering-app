@@ -46,9 +46,12 @@ export default StyleSheet.create({
       fontWeight: 'bold',
    },
    saveButton: {
-      padding: 16,
+      margin: 10,
+      height: 60,
       backgroundColor: '#FF9933',
       borderRadius: 8,
+      justifyContent: 'center',
+      alignItems: 'center'
    },
    textSaveButton: {
       fontSize: 26,
