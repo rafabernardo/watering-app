@@ -6,7 +6,7 @@ export default StyleSheet.create({
       flex: 1,
       paddingHorizontal: 24,
       paddingTop: Constants.statusBarHeight + 10
-      
+
    },
    title: {
       fontSize: 30,
@@ -26,5 +26,8 @@ export default StyleSheet.create({
       color: '#555555',
       fontWeight: 'bold',
    },
-   
+   buttonSave: {
+      fontSize: 20,
+   }
+
 })

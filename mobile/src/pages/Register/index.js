@@ -26,10 +26,21 @@ export default function Register() {
          </View>
          <View style={styles.regBox}>
             <View style={styles.regItem}>
+               <Text style={styles.regTitle}>Nome da planta</Text>
+               <TextInput style={styles.regInput}
+                  onChangeText={() => { }}
+                  placeholder="Digite o nome sua plantinha"
+                  placeholderTextColor="#CCCCCC"
+
+               />
+            </View>
+            <View style={styles.regItem}>
                <Text style={styles.regTitle}>Espécie</Text>
                <TextInput style={styles.regInput}
                   onChangeText={() => { }}
                   placeholder="Digite o nome da espécie"
+                  placeholderTextColor="#CCCCCC"
+
                />
             </View>
             <View style={styles.regItem}>
@@ -37,6 +48,8 @@ export default function Register() {
                <TextInput style={styles.regInput}
                   onChangeText={() => { }}
                   placeholder="Digite o nivel de umidade necessaria"
+                  placeholderTextColor="#CCCCCC"
+
                />
             </View>
             <View style={styles.regItem}>
@@ -44,6 +57,8 @@ export default function Register() {
                <Text style={styles.regInput}
                   onChangeText={() => { }}
                   placeholder="Digite o nome da espécie"
+                  placeholderTextColor="#CCCCCC"
+
                />
             </View>
 
@@ -52,17 +67,21 @@ export default function Register() {
                <TextInput style={styles.regInput}
                   onChangeText={() => { }}
                   placeholder="selecionar a localização"
+                  placeholderTextColor="#CCCCCC"
+
                />
             </View>
+            
+
          </View>
-         <View>
-            <Button
-               onPress={() => { }}
-               title="Salvar"
-               color="#003399"
-               accessibilityLabel="Learn more about this purple button"
-            />
-         </View>
+         <View style={styles.saveButton}>
+               <Button
+                  onPress={() => { }}
+                  title="Salvar"
+                  color="#FF9933"
+                  accessibilityLabel="Learn more about this purple button"
+               />
+            </View>
       </View>
    )
 }
