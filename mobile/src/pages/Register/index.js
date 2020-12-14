@@ -8,9 +8,17 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function Register() {
    const navigation = useNavigation();
+
    function navigateBack() {
       navigation.goBack();
    }
+   async function handleAddRegister() {
+      const response = await api.post()
+
+      console.log("registro salvo com sucesso");
+      navigation.navigate('Pagina Inicial');
+   }
+
    return (
       <View style={styles.container}>
          <View style={styles.header}>
@@ -71,17 +79,21 @@ export default function Register() {
 
                />
             </View>
-            
+
 
          </View>
-         <View style={styles.saveButton}>
-               <Button
-                  onPress={() => { }}
-                  title="Salvar"
-                  color="#FF9933"
-                  accessibilityLabel="Learn more about this purple button"
-               />
-            </View>
+
+         <TouchableOpacity
+            activeOpacity={0.6}
+            style={styles.saveButton}
+            onPress={handleAddRegister}
+            color="#FF9933">
+            <Text style={styles.textSaveButton}
+            >
+               Salvar
+            </Text>
+         </TouchableOpacity>
+
       </View>
    )
 }

@@ -13,7 +13,11 @@ import Details from './pages/Details';
 export default function Routes() {
    return (
       <NavigationContainer>
-         <AppStack.Navigator screenOptions={{ headerShown: false }}>
+         <AppStack.Navigator 
+         screenOptions={{ headerShown: false }}
+         initialRouteName="Register"
+         >
+            
             <AppStack.Screen name="Pagina Inicial" component={InitialPage} />
             <AppStack.Screen name="Register" component={Register} />
             <AppStack.Screen name="ListPlants" component={ListPlants} />
