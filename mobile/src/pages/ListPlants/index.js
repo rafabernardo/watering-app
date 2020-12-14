@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { Text, View, TouchableOpacity, FlatList } from 'react-native';
-import moment from 'moment';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  ImageBackground,
+} from 'react-native';
 
 import api from '../../services/api';
+import backgroundImage from '../../assets/Frame2.png';
 
 import styles from './styles';
 
@@ -18,6 +24,10 @@ export default function ListPlants() {
 
   function navigationToDetail(plant) {
     navigation.navigate('Details', { plant });
+  }
+
+  function navigateBack() {
+    navigation.goBack();
   }
 
   async function loadPlants() {
@@ -45,30 +55,48 @@ export default function ListPlants() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <FlatList
-        data={plants}
-        keyExtractor={(plant) => String(plant.id)}
-        onEndReached={loadPlants}
-        onEndReachedThreshold={0.2}
-        renderItem={({ item: plant }) => (
-          <View>
-            <Text>{plant.name}</Text>
+    <ImageBackground
+      source={backgroundImage}
+      style={{
+        flex: 1,
+      }}
+      imageStyle={{
+        resizeMode: 'cover',
+        alignSelf: 'flex-start',
+        flex: 1,
+        opacity: 0.4
+      }}
+    >
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigateBack()}>
+          <Feather name='arrow-left' size={24} color='#FFF' />
+        </TouchableOpacity>
+        <Text style={styles.title}>Aqui estão as suas plantas</Text>
 
-            <Text>{plant.species}</Text>
+        <FlatList
+          style={styles.plantList}
+          data={plants}
+          keyExtractor={(plant) => String(plant.id)}
+          // showsVerticalScrollIndicator={false}
+          onEndReached={loadPlants}
+          onEndReachedThreshold={0.2}
+          renderItem={({ item: plant }) => (
+            <View style={styles.card}>
+              <View>
+                <Text style={styles.txtProperty}>{plant.name}</Text>
+                <Text style={styles.txtValue}>{plant.species}</Text>
+              </View>
 
-            {/* <Text>Localização:</Text>
-            <Text>{plant.locate}</Text> */}
-
-            {/* <Text>Última rega foi em {moment(plant.watering_date).format('DD-MMM-YYYY [às] hh:mm')}</Text>
-            <Text>Data da aquisição foi em {moment(plant.acquisition_date).format('DD-MMM-YYYY [às] hh:mm')}</Text> */}
-            <TouchableOpacity onPress={() => navigationToDetail(plant)}>
-              <Text style={styles.detailsButtonText}>Ver Mais Detalhes</Text>
-              <Feather name='arrow-right' size={16} color='#E02041' />
-            </TouchableOpacity>
-          </View>
-        )}
-      />
-    </View>
+              <TouchableOpacity
+                style={styles.detailsButton}
+                onPress={() => navigationToDetail(plant)}
+              >
+                <Feather name='arrow-right' size={16} color='#FFF' />
+              </TouchableOpacity>
+            </View>
+          )}
+        />
+      </View>
+    </ImageBackground>
   );
 }
