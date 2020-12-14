@@ -43,7 +43,6 @@ export default function ListPlants() {
     const response = await api.get('list_plants', {
       params: { page },
     });
-    console.log(response.data);
     setPlants([...plants, ...response.data]);
     setTotal(response.headers['x-total-count']);
     setPage(page + 1);
