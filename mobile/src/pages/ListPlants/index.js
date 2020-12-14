@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import { Text, View, TouchableOpacity, FlatList } from 'react-native';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  ImageBackground,
+} from 'react-native';
 
 import api from '../../services/api';
+import backgroundImage from '../../assets/Frame2.png';
 
 import styles from './styles';
 
@@ -48,37 +55,48 @@ export default function ListPlants() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigateBack()}
-      >
-        <Feather name='arrow-left' size={24} color='#72D5DF' />
-      </TouchableOpacity>
-      <Text style={styles.title}>Aqui estão as suas plantas</Text>
+    <ImageBackground
+      source={backgroundImage}
+      style={{
+        flex: 1,
+      }}
+      imageStyle={{
+        resizeMode: 'cover',
+        alignSelf: 'flex-start',
+        flex: 1,
+        opacity: 0.4
+      }}
+    >
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigateBack()}>
+          <Feather name='arrow-left' size={24} color='#FFF' />
+        </TouchableOpacity>
+        <Text style={styles.title}>Aqui estão as suas plantas</Text>
 
-      <FlatList
-        style={styles.incidentList}
-        data={plants}
-        keyExtractor={(plant) => String(plant.id)}
-        // showsVerticalScrollIndicator={false}
-        onEndReached={loadPlants}
-        onEndReachedThreshold={0.2}
-        renderItem={({ item: plant }) => (
-          <View style={styles.card}>
-            <View>
-              <Text style={styles.incidentProperty}>{plant.name}</Text>
-              <Text style={styles.incidentValue}>{plant.species}</Text>
+        <FlatList
+          style={styles.incidentList}
+          data={plants}
+          keyExtractor={(plant) => String(plant.id)}
+          // showsVerticalScrollIndicator={false}
+          onEndReached={loadPlants}
+          onEndReachedThreshold={0.2}
+          renderItem={({ item: plant }) => (
+            <View style={styles.card}>
+              <View>
+                <Text style={styles.incidentProperty}>{plant.name}</Text>
+                <Text style={styles.incidentValue}>{plant.species}</Text>
+              </View>
+
+              <TouchableOpacity
+                style={styles.detailsButton}
+                onPress={() => navigationToDetail(plant)}
+              >
+                <Feather name='arrow-right' size={16} color='#FFF' />
+              </TouchableOpacity>
             </View>
-
-            <TouchableOpacity
-              style={styles.detailsButton}
-              onPress={() => navigationToDetail(plant)}
-            >
-              <Feather name='arrow-right' size={16} color='#FFF' />
-            </TouchableOpacity>
-          </View>
-        )}
-      />
-    </View>
+          )}
+        />
+      </View>
+    </ImageBackground>
   );
 }

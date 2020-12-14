@@ -45,16 +45,20 @@ export default StyleSheet.create({
   },
 
   incidentProperty: {
-    fontSize: 14,
-    color: '#41414d',
-    fontWeight: 'bold',
+    fontSize: 20,
+    textTransform: 'uppercase',
+    fontFamily: 'AirbnbCerealBold',
+    marginLeft: 10,
+    color: '#F29071',
   },
 
   incidentValue: {
-    marginTop: 8,
+    marginLeft: 10,
     fontSize: 15,
     marginBottom: 24,
-    color: '#737380',
+    color: '#A0A3B1',
+    fontStyle: 'italic',
+    fontFamily: 'AirbnbCerealLight',
   },
 
   detailsButton: {
@@ -67,74 +71,3 @@ export default StyleSheet.create({
     borderRadius: 100,
   },
 });
-
-// export default StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-
-//   title: {
-//     fontSize: 30,
-//     marginBottom: 16,
-//     marginTop: 50,
-//     color: '#13131a',
-//     fontFamily: 'AirbnbCerealBook',
-//     textAlign: 'center',
-//   },
-
-//   plantsList: {
-//     paddingLeft: 8,
-//     alignItems: 'flex-end',
-//   },
-
-//   card: {
-//     justifyContent: 'space-between',
-//     flexWrap: 'wrap',
-//     flexDirection: 'row',
-//     backgroundColor: '#fff',
-//     padding: 20,
-//     borderTopLeftRadius: 40,
-//     borderBottomLeftRadius: 40,
-//     marginTop: 10,
-//     width: 350,
-//     shadowColor: '#000',
-//     shadowOffset: {
-//       width: 0,
-//       height: 1,
-//     },
-//     shadowOpacity: 0.2,
-//     shadowRadius: 1.41,
-
-//     elevation: 2,
-//   },
-
-//   contentCard: {
-//     margin: 10,
-//   },
-
-//   cardTitle: {
-//     fontSize: 20,
-//     textTransform: 'uppercase',
-//     fontFamily: 'AirbnbCerealBold',
-//     marginLeft: 10,
-//     color: '#F29071'
-//   },
-
-//   cardSubTitle: {
-//     fontStyle: 'italic',
-//     fontFamily: 'AirbnbCerealLight',
-//     fontSize: 14,
-//     marginLeft: 10,
-//     color: '#272724'
-//   },
-
-//   buttonCard: {
-//     alignSelf: 'flex-end',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     backgroundColor: '#72D5DF',
-//     height: 30,
-//     width: 30,
-//     borderRadius: 100
-//   },
-// });
