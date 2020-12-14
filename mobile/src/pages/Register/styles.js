@@ -6,7 +6,6 @@ export default StyleSheet.create({
       flex: 1,
       paddingHorizontal: 24,
       paddingTop: Constants.statusBarHeight + 10
-
    },
 
    header: {
@@ -24,26 +23,26 @@ export default StyleSheet.create({
       textAlign: 'center',
    },
    regBox: {
-      padding: 24,
+      padding: 16,
       borderRadius: 8,
       backgroundColor: '#fff',
-      marginBottom: 16,
    },
    regItem: {
       padding: 12,
       borderRadius: 8,
-      backgroundColor: '#003399',
+      backgroundColor: '#f3f3f2',
       marginBottom: 16,
    },
    regTitle: {
       fontSize: 20,
-      color: '#FF9933',
+      color: '#F29071',
       fontWeight: 'bold',
    },
    regInput: {
       fontSize: 16,
-      color: '#CCCCCC',
-      fontWeight: 'bold',
+      color: '#737380',
+      fontFamily: 'AirbnbCerealLight',
+
    },
    saveButton: {
       margin: 10,
@@ -58,10 +57,6 @@ export default StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
       textAlign: 'center',
-
-
-
-
    }
   
 
