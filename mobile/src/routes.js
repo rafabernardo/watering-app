@@ -15,7 +15,7 @@ export default function Routes() {
       <NavigationContainer>
          <AppStack.Navigator 
          screenOptions={{ headerShown: false }}
-         initialRouteName="Register"
+         // initialRouteName="Register"
          >
             
             <AppStack.Screen name="Pagina Inicial" component={InitialPage} />
