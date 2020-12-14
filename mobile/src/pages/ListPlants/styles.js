@@ -22,7 +22,7 @@ export default StyleSheet.create({
     color: '#737380',
   },
 
-  incidentList: {
+  plantList: {
     marginTop: 32,
   },
 
@@ -44,7 +44,7 @@ export default StyleSheet.create({
     elevation: 2,
   },
 
-  incidentProperty: {
+  txtProperty: {
     fontSize: 20,
     textTransform: 'uppercase',
     fontFamily: 'AirbnbCerealBold',
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     color: '#F29071',
   },
 
-  incidentValue: {
+  txtValue: {
     marginLeft: 10,
     fontSize: 15,
     marginBottom: 24,

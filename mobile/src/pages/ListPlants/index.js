@@ -74,7 +74,7 @@ export default function ListPlants() {
         <Text style={styles.title}>Aqui estão as suas plantas</Text>
 
         <FlatList
-          style={styles.incidentList}
+          style={styles.plantList}
           data={plants}
           keyExtractor={(plant) => String(plant.id)}
           // showsVerticalScrollIndicator={false}
@@ -83,8 +83,8 @@ export default function ListPlants() {
           renderItem={({ item: plant }) => (
             <View style={styles.card}>
               <View>
-                <Text style={styles.incidentProperty}>{plant.name}</Text>
-                <Text style={styles.incidentValue}>{plant.species}</Text>
+                <Text style={styles.txtProperty}>{plant.name}</Text>
+                <Text style={styles.txtValue}>{plant.species}</Text>
               </View>
 
               <TouchableOpacity
