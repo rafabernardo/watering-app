@@ -1,6 +1,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('plant', function (table) {
     table.increments('id').primary();
+    table.string('name').notNullable();
     table.string('species').notNullable();
     table.string('locate').notNullable();
     table.integer('humidity_level');
@@ -10,5 +11,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('ongs');
+  return knex.schema.dropTable('plantc');
 };
