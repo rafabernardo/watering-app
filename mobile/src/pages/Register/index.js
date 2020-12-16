@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import DatePicker from 'react-native-datepicker';
+import DatePicker from '@react-native-community/datetimepicker';
 import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { TextInput } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
+import moment from 'moment';
+
 import { postRegister } from '../../services/RegisterService';
 import styles from './styles';
 import backgroundImage from '../../assets/Frame2.png';
@@ -13,7 +15,8 @@ export default function Register() {
   const [species, setSpecies] = useState('');
   const [locate, setLocate] = useState('');
   const [humidity_level, setHumidity] = useState('');
-  const [acquisition_date, setAcquisition_date] = useState(new Date());
+  const [acquisition_date, setAcquisition_date] = useState(moment(new Date()));
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
   const navigation = useNavigation();
 
@@ -43,7 +46,14 @@ export default function Register() {
     setLocate(txtLocate);
   };
 
-  onSave = async () => {
+  const onDataChange = (e, date) => {
+    setShowDatePicker(false);
+    if(date){
+      setAcquisition_date(moment(date));
+    }
+  };
+
+  const onSave = async () => {
     postRegister({
       name,
       species,
@@ -52,7 +62,6 @@ export default function Register() {
       acquisition_date,
     })
       .then(() => {
-
         setName('');
         setSpecies('');
         setLocate('');
@@ -119,32 +128,25 @@ export default function Register() {
             />
           </View>
           <View style={styles.regItem}>
-            <Text style={styles.regTitle}>Data de aquisição</Text>
-            <DatePicker
-              style={styles.datePickerStyle}
-              date={acquisition_date}
-              mode='date'
-              placeholder='select date'
-              format='DD-MM-YYYY'
-              minDate='01-01-2000'
-              maxDate='01-01-2025'
-              confirmBtnText='Confirm'
-              cancelBtnText='Cancel'
-              customStyles={{
-                dateIcon: {
-                  position: 'absolute',
-                  left: 0,
-                  top: 4,
-                  marginLeft: 0,
-                },
-                dateInput: {
-                  marginLeft: 36,
-                },
-              }}
-              onDateChange={(date) => {
-                setAcquisition_date(date);
-              }}
-            />
+            <Text style={styles.regTitle}>Data de aquisição: </Text>
+            <TouchableOpacity
+              activeOpacity={0}
+              onPress={() => setShowDatePicker(!showDatePicker)}
+            >
+              <Text style={styles.regInput}>
+                {acquisition_date.format('DD/MM/YYYY')}
+              </Text>
+              {showDatePicker && (
+                <View>
+                  <DatePicker
+                    value={new Date(acquisition_date)}
+                    timeZoneOffsetInMinutes={0}
+                    mode={'date'}
+                    onChange={onDataChange}
+                  />
+                </View>
+              )}
+            </TouchableOpacity>
           </View>
 
           <View style={styles.regItem}>
@@ -163,7 +165,6 @@ export default function Register() {
           activeOpacity={0.6}
           style={styles.saveButton}
           onPress={onSave}
-          
         >
           <Text style={styles.textSaveButton}>Salvar</Text>
         </TouchableOpacity>
